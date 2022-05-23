@@ -41,7 +41,7 @@ class Encoder:
         changed_by_hdb3 = self.hdb3(input_data)
         self.draw(changed_by_hdb3)
 
-    def hdb3(self, code_to_encode: str) -> list:
+    def hdb3(self, code_to_encode: str) -> str:
         zero_count, one_count = 0, 0
         changed_by_hdb3 = []
 
@@ -69,7 +69,7 @@ class Encoder:
 
             changed_by_hdb3.append(i)
 
-        return changed_by_hdb3
+        return "".join([item for item in changed_by_hdb3])
 
     def draw(self, data: str):
         up = True
