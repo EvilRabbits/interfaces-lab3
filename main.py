@@ -8,9 +8,9 @@ class Encoder:
         self.gui.geometry("1000x450")
         self.gui.title("HDB3")
         self.gui.configure(background="light gray")
-        
+
         self.input = tk.StringVar()
-       
+
         self.reg = re.compile("^[0-1]*$")
 
         self.uncorrert_input_label = tk.Label(text="Допустимый ввод - 0 и 1")
@@ -38,10 +38,11 @@ class Encoder:
             self.uncorrert_input_label.pack()
             return 0
 
-        self.draw(input_data)
+        changed_by_hdb3 = self.hdb3(input_data)
+        self.draw(changed_by_hdb3)
 
     def hdb3(self, code_to_encode: str) -> list:
-        zero_count, one_count = 0, 0        
+        zero_count, one_count = 0, 0
         changed_by_hdb3 = []
 
         for i in code_to_encode:
@@ -57,7 +58,7 @@ class Encoder:
                     case 0:
                         changed_by_hdb3.append("v")
                         one_count += 1
-                        
+
                     case _:
                         changed_by_hdb3[len(changed_by_hdb3)-3] = "(1)"
                         changed_by_hdb3.append("v")
@@ -75,16 +76,14 @@ class Encoder:
         x, y = 10, 50
         step_x, step_y = 20, 20
 
-        changed_by_hdb3 = self.hdb3(self.input.get())
-
-        for i in range(len(changed_by_hdb3)):
-            item = changed_by_hdb3[i]
+        for i in range(len(data)):
+            item = data[i]
             match item:
                 case "0":
                     self.canvas.create_line(x, y, x + step_x, y)
                     self.canvas.create_text(x + 10, 80, text=item)
                     x += step_x
-                
+
                 case "1":
                     if not up:
                         self.canvas.create_line(x, y, x, y + step_y)
@@ -104,7 +103,7 @@ class Encoder:
                         self.canvas.create_line(x, y, x, y + step_y)
                         y += step_y
                         up = False
-                
+
                 case "(1)":
                     if not up:
                         self.canvas.create_line(x, y, x, y + step_y)
