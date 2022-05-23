@@ -17,7 +17,7 @@ class Encoder:
         self.uncorrert_input_label.configure(background="light gray")
         self.uncorrert_input_label.pack_forget()
 
-        self.entry = tk.Entry(self.gui, textvariable=self.input, width=1000, justify=tk.LEFT)
+        self.entry = tk.Entry(self.gui, textvariable=self.input, width=50, justify=tk.LEFT)
         self.entry.pack()
         self.entry.place(x=50, y=0)
 
