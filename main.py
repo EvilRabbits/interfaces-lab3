@@ -5,7 +5,7 @@ import re
 class Encoder:
     def __init__(self) -> None:
         self.gui = tk.Tk()
-        self.gui.geometry("600x450")
+        self.gui.geometry("1000x450")
         self.gui.title("HDB3")
         self.gui.configure(background="light gray")
         
@@ -17,11 +17,11 @@ class Encoder:
         self.uncorrert_input_label.configure(background="light gray")
         self.uncorrert_input_label.pack_forget()
 
-        self.entry = tk.Entry(self.gui, textvariable=self.input, justify=tk.RIGHT)
+        self.entry = tk.Entry(self.gui, textvariable=self.input, width=1000, justify=tk.LEFT)
         self.entry.pack()
         self.entry.place(x=50, y=0)
 
-        self.canvas = tk.Canvas(self.gui, width=600, height=150)
+        self.canvas = tk.Canvas(self.gui, width=1000, height=150)
         self.canvas.pack()
         self.canvas.place(x=0, y=50)
 
