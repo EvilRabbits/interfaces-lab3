@@ -11,4 +11,4 @@
 ### Запуск
 Запускается на **python3.10**
 
-`python main.py`
+`python hdb3.py` или `python ami.py`
