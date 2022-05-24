@@ -16,4 +16,5 @@
 #### Если нужно сделать .exe файл, то следует установить пакет **pyinstaller**
 
 `pip install pyinstaller`
+
 `pyinstaller --onefile -w 'hdb3.py'` или `pyinstaller --onefile -w 'ami.py'`
